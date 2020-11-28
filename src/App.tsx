@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const fetchData = async () => {
-  const response = await axios.get(
-    "https://search-api.fie.future.net.uk/widget.php?id=review&model_name=xbox_one_s&area=GB"
-  );
-  return response.data;
+  try {
+    const { data } = await axios.get(
+      "https://search-api.fie.future.net.uk/widget.php?id=review&model_name=xbox_one_s&area=GB"
+    );
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const App = () => {
