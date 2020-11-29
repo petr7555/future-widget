@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Item } from "../types/types";
-import OfferRow from "./OfferRow";
+import SingleOffer from "./SingleOffer";
+import styled from "styled-components";
 
 const NUMBER_OF_ITEMS = 4;
 
@@ -29,6 +30,17 @@ const createItem = (rawItem: any): Item => ({
   linkText: rawItem.offer.link_text,
 });
 
+const Container = styled.div`
+  border-radius: 15px;
+  background-color: #ffffff;
+  font-family: "Titillium Web", sans-serif;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.014),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.02), 0 12.5px 10px rgba(0, 0, 0, 0.025),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.03), 0 41.8px 33.4px rgba(0, 0, 0, 0.036),
+    0 100px 80px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+`;
+
 const Offers = () => {
   const [items, setItems] = useState<Item[]>([]);
 
@@ -41,11 +53,11 @@ const Offers = () => {
   }
 
   return (
-    <table>
+    <Container>
       {items.map((item) => (
-        <OfferRow key={item.id} item={item} />
+        <SingleOffer key={item.id} item={item} />
       ))}
-    </table>
+    </Container>
   );
 };
 
