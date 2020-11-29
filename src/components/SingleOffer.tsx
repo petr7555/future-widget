@@ -2,10 +2,6 @@ import React from "react";
 import { Item } from "../types/types";
 import styled from "styled-components";
 
-type OfferRowProps = {
-  item: Item;
-};
-
 const Table = styled.div`
   border-bottom: 1px solid grey;
   &:last-child {
@@ -62,6 +58,10 @@ const Description = styled.div`
 const Name = styled.p`
   margin: 0;
 `;
+
+type OfferRowProps = {
+  item: Item;
+};
 
 const SingleOffer = ({ item }: OfferRowProps) => {
   return (
