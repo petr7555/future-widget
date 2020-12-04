@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Item } from "../types/types";
 import SingleOffer from "./SingleOffer";
 import styled from "styled-components";
-import {fetchItems} from "../api/api";
+import { fetchItems } from "../api/api";
 
 const Container = styled.div`
   border-radius: 15px;
